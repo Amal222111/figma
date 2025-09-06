@@ -1,0 +1,32 @@
+.divHeader {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  padding: 10px 20px;
+}
+
+.divLink {
+  display: flex;
+  gap: 15px;
+  padding-right: 20px;
+  border-right: 1px solid gray;
+  color: #6B7280;
+}
+
+.divLinkDeliver{
+justify-content: center;
+  display: flex;
+  gap: 15px;
+  padding-right: 20px;
+}
+
+.divSearch{
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+ justify-content: center;
+ border-bottom: 1px solid gray;
+}
