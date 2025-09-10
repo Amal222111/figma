@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router";
 import style from "../styles/Layout.module.scss";
+import Footer from "../../widgets/Footer/ui/Footer";
 
 
 export default function Layout() {
@@ -122,6 +123,8 @@ export default function Layout() {
                     </div>
                 </div>
             </header>
+            <Outlet />
+            <Footer />
         </div>
     );
 }

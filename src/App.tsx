@@ -13,6 +13,7 @@ import Profile from './pages/ProfilePage/ui/Profile'
 import Registration from './pages/RegistrationPage/ui/Registration'
 import Wishlist from './pages/WishlistPage/ui/Wishlist'
 import Blog from './pages/BlogPages/ui/BlogPages'
+import Footer from './widgets/Footer/ui/Footer'
 function App() {
   return (
     <>
@@ -30,6 +31,7 @@ function App() {
           <Route path='registration' element={<Registration />} />
           <Route path='wishlist' element={<Wishlist />}></Route>
           <Route path='blog' element={<Blog />}></Route>
+          <Route path='footer' element={<Footer />}></Route>
         </Route>
       </Routes>
     </>

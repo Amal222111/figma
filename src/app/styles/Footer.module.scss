@@ -1,0 +1,14 @@
+.topFooter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid gray;
+    padding: 20px; 
+}
+.middleFooter{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+padding: 20px;
+}
+// grid grid-cols-2 items-center justify-center pr-14 pl-14
