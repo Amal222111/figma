@@ -125,6 +125,23 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
+                <div className='grid grid-cols-2 '>
+                   <div>
+                 <p className='text-purple-800'>Copyright 2024 © Jinstore WooCommerce WordPress Theme. All right reserved. Powered by BlackRise Themes.</p>
+                 <div className='flex'>
+                    <img src="" alt="" />
+                    <img src="" alt="" />
+                    <img src="" alt="" />
+                    <img src="" alt="" />
+                    <img src="" alt="" />
+                 </div>
+                   </div>
+                   <div className='flex'>
+                   <p></p>
+                   <p></p>
+                   <p></p>
+                   </div>
+                </div>
             </div>
 
 
