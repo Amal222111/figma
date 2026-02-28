@@ -1,14 +1,19 @@
-// Типы для фильтрации продуктов
+export interface Product {
+  id: number;
+  title: string;
+  brand: string;
+  category: string;
+  price: number;
+  rating: number;
+  inStock: boolean;
+  onSale: boolean;
+}
+
 export interface FilterParams {
   category?: string;
   brand?: string;
   minRating?: number;
   maxRating?: number;
-}
-
-export interface FilterOption {
-  value: string;
-  label: string;
 }
 
 export interface RatingRange {

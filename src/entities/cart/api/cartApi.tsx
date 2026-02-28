@@ -1,29 +1,32 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "../../../shared/api/baseQuery";
 import type { CartData } from "../model/types";
-
+import type { Product } from "../../product/api/model/types";
 
 export const cartApi = createApi({
   reducerPath: "cartApi",
   baseQuery: baseQuery,
-  tagTypes: ['Cart'], // Добавляем тип тега для кеширования
+  tagTypes: ["Cart"],
   endpoints: (builder) => ({
+    // 🔹 Получение корзины
     getCartData: builder.query<CartData, void>({
       query: () => "/cart",
-      transformResponse: (response: CartData) => {
-        console.log("Raw API response:", response);
-        return response;
-      },
-      // Добавляем обработку ошибок
-      transformErrorResponse: (response) => {
-        console.error("API Error:", response);
-        return response;
-      },
-      providesTags: ['Cart'], // Кеширование
+      providesTags: ["Cart"],
     }),
 
- 
+    // 🔹 Добавление товара в корзину
+    addProductToCart: builder.mutation<Product, Product>({
+      query: (product) => ({
+        url: "/cart",
+        method: "POST",
+        body: product,
+      }),
+      invalidatesTags: ["Cart"], // обновляет корзину после добавления
+    }),
   }),
 });
 
-export const { useGetCartDataQuery } = cartApi;
+export const {
+  useGetCartDataQuery,
+  useAddProductToCartMutation,
+} = cartApi;

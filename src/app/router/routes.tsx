@@ -9,11 +9,14 @@ import Registration from "../../pages/RegistrationPage/ui/Registration";
 import CheckoutPage from "../../pages/CheakoutPage/ui/Cheakout";
 import Login from "../../pages/LoginPage/ui/Login";
 import ProfilePage from "../../pages/ProfilePage/ui/ProfilePage";
+import Contact from "../../pages/AboutPage/ui/Contact";
+import Blog from "../../pages/BlogPages/ui/BlogPages";
+import Wishlist from "../../pages/WishlistPage/ui/Wishlist";
 // import { AuthLayout } from "../layouts/AuthLayout";
 // import { ProtectedRoute } from "@/app/router/ProtectedRoute";
 // import MainLayout from "../layouts/MainLayout";
 const HomePage = lazy(() => import("../../pages/HomePage/ui/Home"));
-const AboutPage = lazy(() => import("../../pages/AboutPage/ui/About"));
+const AboutPage = lazy(() => import("../../pages/AboutPage/ui/Contact"));
 const ShopPage = lazy(() => import("../../pages/ShopPage/ui/shop"));
 
 
@@ -28,15 +31,6 @@ export const routes: RouteObject[] = [
           <ProtectedRoute>
             <HomePage />
           </ProtectedRoute>
-        ),
-      },
-      {
-        path: "/about",
-        element: (
-          <ProtectedRoute>
-            <AboutPage />
-          </ProtectedRoute>
-
         ),
       },
       {
@@ -76,7 +70,7 @@ export const routes: RouteObject[] = [
         ),
       },
       {
-        path: "/cheakout",
+        path: "/cheackout",
         element: (
           <ProtectedRoute>
             <CheckoutPage />
@@ -94,6 +88,30 @@ export const routes: RouteObject[] = [
         path: "/profile",
         element: (
           <ProfilePage />
+        ),
+      },
+                  {
+        path: "/contact",
+        element: (
+          <AboutPage />
+        ),
+      },
+      {
+        path: "/blog",
+        element: (
+          <ProtectedRoute>
+            <Blog />
+          </ProtectedRoute>
+
+        ),
+      },
+            {
+        path: "/wishlist",
+        element: (
+          <ProtectedRoute>
+            <Wishlist />
+          </ProtectedRoute>
+
         ),
       },
     ],

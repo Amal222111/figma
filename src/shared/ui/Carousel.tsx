@@ -1,36 +1,39 @@
+// Carousel.tsx
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
 import './Carousel.css';
 
-
-import { Pagination } from 'swiper/modules';
-
-
 export default function Carousel() {
-    const pagination = {
-        clickable: true,
-        renderBullet: function (index:any, className: any) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
-        },
-    };
-
     return (
-        <>
-            <Swiper
-                pagination={pagination}
-                modules={[Pagination]}
-                className="mySwiper"
-            >
-                <SwiperSlide>
-                    <img src="./public/122.png" alt="01" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="./public/Tabpanel.png" alt="02" />
-                </SwiperSlide>
-            </Swiper>
-            
-        </>
+        <Swiper
+            pagination={{ clickable: true }}
+            modules={[Pagination]}
+            className="mySwiper"
+            loop={true} // бесконечный цикл
+        >
+            <SwiperSlide className="flex justify-center items-center bg-gray-100">
+                <img 
+                    src="./public/Tabpanel.png" 
+                    alt="Slide 1" 
+                    className="w-full h-auto object-contain" 
+                />
+            </SwiperSlide>
+            <SwiperSlide className="flex justify-center items-center bg-gray-100">
+                <img 
+                    src="./public/Tabpanel2.png" 
+                    alt="Slide 2" 
+                    className="w-full h-auto object-contain" 
+                />
+            </SwiperSlide>
+            <SwiperSlide className="flex justify-center items-center bg-gray-100">
+                <img 
+                    src="./public/Tabpanel3.png" 
+                    alt="Slide 3" 
+                    className="w-full h-auto object-contain" 
+                />
+            </SwiperSlide>
+        </Swiper>
     );
 }

@@ -19,25 +19,29 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div key={product.id} className="border p-4 m-4">
+    <div key={product.id} className=" px-6 p-4 border rounded-2xl ">
+      <img src={product.imgUrl} alt={product.title} />
       <Link to={`/products/${product.id}`}>
         <h2 className="text-xl font-semibold">{product.title}</h2>
       </Link>
-      <p>{product.description}</p>
+      <div className="flex gap-1 my-2 ">
+        <img className="w-6" src="./public/rating.png" alt="" />
+        <h1 className="font-bold">{product.rating}</h1>
+      </div>
       <p className="font-bold">${product.price}</p>
-      <img
-        // src={product.imageUrl ?? ""}
-        alt={product.title}
-        className="w-32 h-32 object-cover mt-2"
-      />
-      <button
-        onClick={handleAddToCart}
-        className="bg-red-500 text-white p-5 rounded-2xl mt-2"
-        disabled={isLoading}
-      >
-        {isLoading ? "Adding..." : "Add to cart"}
-      </button>
-      {isError && <p className="text-red-500">Error: {JSON.stringify(error)}</p>}
+      <div className="flex gap-2">
+        <button
+          onClick={handleAddToCart}
+          className=" text-purple-700 p-2 text-start border-purple-700 border-2 rounded-2xl w-full"
+          disabled={isLoading}
+        >
+          {isLoading ? "Adding..." : "Add to cart"}
+        </button>
+        {isError && <p className="text-red-500">Error: {JSON.stringify(error)}</p>}
+        <button ><img className="w-max" src="./public/wishlist.png" alt="" /></button>
+      </div>
+
     </div>
+
   );
 }

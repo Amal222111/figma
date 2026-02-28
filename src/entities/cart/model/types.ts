@@ -1,10 +1,12 @@
+
 export interface CartItem {
   id: number;
   title: string;
   image: string;
   price: number;
+  oldPrice?: number;
   quantity: number;
-  discount: number; 
+  discount?: number; 
   totalPrice: number;
   stock: number;
   variant: string;
@@ -12,7 +14,6 @@ export interface CartItem {
 
 export interface CartData {
   items: CartItem[];
-  totalItems: number;
   subtotal: number;
   discountTotal: number;
   totalPrice: number;

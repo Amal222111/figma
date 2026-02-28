@@ -2,11 +2,9 @@ import { useState } from "react";
 import { useRegisterMutation } from "../../model/authApi";
 import type { RegisterRequest } from "../../model/type";
 import { useNavigate } from "react-router";
-
+import { Link } from "react-router";
 export default function RegistrationForm() {
   const [form, setForm] = useState<RegisterRequest>({
-    name: "",
-    surname: "",
     username: "",
     email: "",
     password: "",
@@ -29,8 +27,6 @@ export default function RegistrationForm() {
       alert(`Регистрация успешна!\nДобро пожаловать, ${form.username}!`);
 
       setForm({
-        name: "",
-        surname: "",
         username: "",
         email: "",
         password: "",
@@ -43,35 +39,18 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "0 auto" }}>
+    <div className="bg-gray-100">
+      <div  style={{ maxWidth: 400, margin: "0 auto" }}>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label><br />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            value={form.name}
-            onChange={handleChange}
-          />
+        <div className="flex justify-center">
+        <Link className="text-3xl px-2" to="/login">Login</Link>
+    
+        <h1 className="text-3xl px-10">Register</h1>
         </div>
-
-        <div>
-          <label htmlFor="surname">Surname</label><br />
-          <input
-            type="text"
-            id="surname"
-            name="surname"
-            required
-            value={form.surname}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
+        <div className="py-3">
           <label htmlFor="username">Username</label><br />
           <input
+           className="border rounded-sm px-20 py-2"
             type="text"
             id="username"
             name="username"
@@ -81,9 +60,10 @@ export default function RegistrationForm() {
           />
         </div>
 
-        <div>
+        <div className="py-3">
           <label htmlFor="email">Email</label><br />
           <input
+           className="border rounded-sm px-20 py-2"
             type="email"
             id="email"
             name="email"
@@ -93,9 +73,10 @@ export default function RegistrationForm() {
           />
         </div>
 
-        <div>
+        <div className="py-3">
           <label htmlFor="password">Password</label><br />
           <input
+           className="border rounded-sm px-20 py-2"
             type="password"
             id="password"
             name="password"
@@ -105,12 +86,14 @@ export default function RegistrationForm() {
           />
         </div>
 
-        <button type="submit" style={{ marginTop: 10 }} disabled={isLoading}>
+        <button className="bg-purple-900 text-white px-36 py-1 text-lg border rounded-md"  type="submit" style={{ marginTop: 10, marginBottom: 150}} disabled={isLoading}>
           {isLoading ? "Регистрация..." : "Register"}
         </button>
 
         {error && <p style={{ color: "red" }}>Ошибка регистрации</p>}
       </form>
     </div>
+    </div>
+    
   );
 }

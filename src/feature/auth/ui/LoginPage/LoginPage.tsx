@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLoginMutation } from "../../model/authApi";
 import type { LoginRequest } from "../../model/type";
 import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 export default function LoginForm() {
   const [form, setForm] = useState<LoginRequest>({
@@ -29,7 +30,7 @@ export default function LoginForm() {
         email: "",
         password: "",
       });
-        navigate("/");
+      navigate("/");
     } catch (err) {
       console.error("login error:", err);
       alert("login error");
@@ -37,39 +38,48 @@ export default function LoginForm() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "0 auto" }}>
-      <form onSubmit={handleSubmit}>
-    
-        <div>
-          <label htmlFor="email">Email</label><br />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            value={form.email}
-            onChange={handleChange}
-          />
-        </div>
+    <div className="bg-gray-100">
+      <div className="pb-100" style={{ maxWidth: 400, margin: "0 auto", padding: "20px" }}>
+        <form onSubmit={handleSubmit}>
+          <div className="flex justify-center">
+            <Link className="text-3xl px-2" to="/registration">Register</Link>
 
-        <div>
-          <label htmlFor="password">Password</label><br />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            value={form.password}
-            onChange={handleChange}
-          />
-        </div>
+            <h1 className="text-3xl px-10">Login</h1>
+          </div>
+          <div className="py-3">
+            <label htmlFor="email">Email</label><br />
+            <input
+              className="border rounded-sm px-20 py-2"
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={form.email}
+              onChange={handleChange}
+            />
+          </div>
 
-        <button type="submit" style={{ marginTop: 10 }} disabled={isLoading}>
-          {isLoading ? "Login..." : "Login"}
-        </button>
+          <div className="py-3">
+            <label htmlFor="password">Password</label><br />
+            <input
+              className="border rounded-sm px-20 py-2"
+              type="password"
+              id="password"
+              name="password"
+              required
+              value={form.password}
+              onChange={handleChange}
+            />
+          </div>
 
-        {error && <p style={{ color: "red" }}>Login error</p>}
-      </form>
+          <button className="bg-purple-900 text-white px-38 py-1 text-lg border rounded-md" type="submit" style={{ marginTop: 10, marginBottom: 150 }} disabled={isLoading}>
+            {isLoading ? "Login..." : "Login"}
+          </button>
+
+          {error && <p style={{ color: "red" }}>Login error</p>}
+        </form>
+      </div>
     </div>
+
   );
 }
